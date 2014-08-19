@@ -3,6 +3,9 @@ spiegel.de-for-netbooks
 
 Spiegel.de for Netbooks (Greasemonkey-Script)
 
+* http://www.webextender.net/scripts/preview/56145.html
+* http://userscripts-mirror.org/scripts/show/56145.html
+
 <p><b>Script Summary:</b>
 Shows articles on Spiegel.de without header (colored area at the top and sections). Removes ads from adserv.quality-channel.de.
 Shows teaser text before picture, gallery or video.  Swaps article column and article function box column.
