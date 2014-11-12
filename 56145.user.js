@@ -155,12 +155,14 @@ function swapForumAndRelatedArticlesBox() {
     var forum;
     var found = false;
     
-    /* (en) search for the first div element with class name "article-comments-box" */
+    /* (en) search for the first div element with class name 
+     * "clearfix article-comments-box module-box" 
+     */
     /* (de) suche nach dem ersten div-Element, das den Klassennamen
-     *      "article-comments-box" besitzt.
+     *      "clearfix article-comments-box module-box" besitzt.
      */
     for (var i = 0; !found && i <= (es.length - 1); i++) {
-        if (es[i].className == "article-comments-box") {
+        if (es[i].className == "clearfix article-comments-box module-box") {
             found = true; // break for-loop, just need the first one
             forum = es[i];
         }
