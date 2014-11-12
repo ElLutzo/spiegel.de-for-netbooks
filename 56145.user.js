@@ -141,6 +141,46 @@ function swapPictureAndIntroTeaser() {
 }
 
 /**
+ * (en) Display the forum before the box with related articles 
+ * (de) Zeige das Forum zu diesem Artikel vor dem Kasten mit Artikeln zum Thema
+ */
+function swapForumAndRelatedArticlesBox() {
+    /* (en) related articles box */
+    /* (de) der Kasten mit den Artikeln zum Thema */
+    var relatedArticlesBox = document.getElementById("spVeeseo");
+	
+    var es = document.getElementsByTagName("div");
+    /* (en) the forum */
+    /* (de) das Forum */
+    var forum;
+    var found = false;
+    
+    /* (en) search for the first div element with class name "article-comments-box" */
+    /* (de) suche nach dem ersten div-Element, das den Klassennamen
+     *      "article-comments-box" besitzt.
+     */
+    for (var i = 0; !found && i <= (es.length - 1); i++) {
+        if (es[i].className == "article-comments-box") {
+            found = true; // break for-loop, just need the first one
+            forum = es[i];
+        }
+    }
+	
+    /* (en) if relatedArticlesBox and forum exist swap them 
+     */
+    /* (de) wenn der Kasten mit den Artikeln zum Thema 
+     *      und das Forum 
+     *      existieren, vertausche die beiden Elemente 
+     */
+    if (relatedArticlesBox && forum) {
+        var relatedArticlesBox_clone = relatedArticlesBox.cloneNode(true);
+        var forum_clone = forum.cloneNode(true);
+        relatedArticlesBox.parentNode.replaceChild(forum_clone, relatedArticlesBox);
+        forum.parentNode.replaceChild(relatedArticlesBox_clone, forum);
+    }
+}
+
+/**
  * (en) marks links to videos
  * (de) markiere Links, die zu Videos fuehren
  */
@@ -203,6 +243,11 @@ removeLinkByUrlPart("adserv.quality-channel.de");
 if(isNotQuiz()) {
     swapPictureAndIntroTeaser();
 }
+
+/* (en) swap relatedArticlesBox and forum */
+/* (de) zeige das Forum vor dem Kasten mit den Artikeln zum Thema 
+ */
+swapForumAndRelatedArticlesBox();
 
 /* (en) mark links to videos */
 /* (de) markiere Links, die zu Videos fuehren
