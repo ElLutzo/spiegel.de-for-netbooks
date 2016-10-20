@@ -18,8 +18,8 @@ function removeNodeById(id) {
     var e = document.getElementById(id);
 
     /* (en) if an element with this id exists, remove it from its parent */
-    /* (de) wenn ein Element mit dieser ID existiert, entferne es 
-     *      aus der Liste der Kinderknoten des Vaterknotens 
+    /* (de) wenn ein Element mit dieser ID existiert, entferne es
+     *      aus der Liste der Kinderknoten des Vaterknotens
      */
     if (e) {
         e.parentNode.removeChild(e);
@@ -126,11 +126,11 @@ function swapPictureAndIntroTeaser() {
         }
     }
 
-    /* (en) if pic and teaser exist swap them 
+    /* (en) if pic and teaser exist swap them
      */
-    /* (de) wenn das Bild/die Bildergalerie/das Video/das Asset 
-     *      und der Anreiszer 
-     *      existieren, vertausche die beiden Elemente 
+    /* (de) wenn das Bild/die Bildergalerie/das Video/das Asset
+     *      und der Anreiszer
+     *      existieren, vertausche die beiden Elemente
      */
     if (pic && teaser) {
         var pic_clone = pic.cloneNode(true);
@@ -162,17 +162,17 @@ function swapForumAndRelatedArticlesBox() {
      *      "clearfix article-comments-box module-box" besitzt.
      */
     for (var i = 0; !found && i <= (es.length - 1); i++) {
-        if (es[i].className == "clearfix article-comments-box module-box") {
+        if (es[i].className == "clearfix article-comments-box") {
             found = true; // break for-loop, just need the first one
             forum = es[i];
         }
     }
 
-    /* (en) if relatedArticlesBox and forum exist swap them 
+    /* (en) if relatedArticlesBox and forum exist swap them
      */
-    /* (de) wenn der Kasten mit den Artikeln zum Thema 
-     *      und das Forum 
-     *      existieren, vertausche die beiden Elemente 
+    /* (de) wenn der Kasten mit den Artikeln zum Thema
+     *      und das Forum
+     *      existieren, vertausche die beiden Elemente
      */
     if (relatedArticlesBox && forum) {
         var relatedArticlesBox_clone = relatedArticlesBox.cloneNode(true);
@@ -227,27 +227,26 @@ swapArticleColumnAndFunctionBox();
  *      und die Navigationsleisten im Kopfbereich der Seite)
  */
 removeNodeByClass("div", "header-top");
-removeNodeByClass("div", "header-main");
+removeNodeByClass("div", "header-main clearfix");
 removeNodeByClass("div", "nav-channel");
 
-
 /* (en) remove all adserv.quality-channel.de links */
-/* (de) entferne die Werbeeinblendungen, die nicht durch andere 
+/* (de) entferne die Werbeeinblendungen, die nicht durch andere
  *      Werbeblocker erreicht werden.
  */
 removeLinkByUrlPart("adserv.quality-channel.de");
 
 /* (en) swap Picture and IntroTeaser if it isn't a quiz */
-/* (de) zeige den Artikel-Anreiszer vor dem Bild, einer 
+/* (de) zeige den Artikel-Anreiszer vor dem Bild, einer
  *      Bildergalerie, Video oder Asset, wenn es sich nicht
  *      um ein Quiz handelt
  */
 if (isNotQuiz()) {
-    swapPictureAndIntroTeaser();
+    // swapPictureAndIntroTeaser();
 }
 
 /* (en) swap relatedArticlesBox and forum */
-/* (de) zeige das Forum vor dem Kasten mit den Artikeln zum Thema 
+/* (de) zeige das Forum vor dem Kasten mit den Artikeln zum Thema
  */
 swapForumAndRelatedArticlesBox();
 
